@@ -1,30 +1,33 @@
 const myLibrary = [];
 
-//Book constrcutor
-function Book(title, author, pages, read){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    console.log("book created");
-}
-
-//return book info
-Book.prototype.info = function(){
-    if(this.read == true){
-        return `${this.title} by ${this.author}, ${this.pages} pages, read`
+//Book object
+class Book{
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        console.log("book created");
     }
-    return `${this.title} by ${this.author}, ${this.pages} pages, not read yet`
-}
 
-//change book read status
-Book.prototype.changeReadStatus = function(){
-    if(this.read == true){
-        this.read = false;
+    //return book info method
+    info(){
+        if(this.read == true){
+            return `${this.title} by ${this.author}, ${this.pages} pages, read`
+        }
+        return `${this.title} by ${this.author}, ${this.pages} pages, not read yet`
+    
+    }
+    
+    //change read status method
+    changeReadStatus(){
+        if(this.read == true){
+            this.read = false;
+            return;
+        }
+        this.read = true;
         return;
     }
-    this.read = true;
-    return;
 }
 
 //store book in library
